@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/features/"},
         strict = true,
-        tags = "@TEST02",
+        tags = "@TEST01, @TEST02",
         glue = "tests",
         monochrome = true
 )

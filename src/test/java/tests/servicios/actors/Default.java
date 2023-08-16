@@ -56,7 +56,7 @@ public class Default extends DataExcel {
 
     public void guardarToken(){
        token = response.then().extract().body().jsonPath().getString("access_token");
-       registrarValor("access_token",token);
+       registrarValor("access_token","Bearer " + token);
 
     }
 
@@ -72,6 +72,7 @@ public class Default extends DataExcel {
            RestAssured.baseURI = baseURI;
 
            request = given().header("Content-Type","application/json")
+                   .header("Authorization",getCellValue("Hoja1",1,6)).log().all()
                    .contentType("application/json")
                    .accept("application/json")
                    .body(jsonContent).log().all();
