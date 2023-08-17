@@ -64,12 +64,13 @@ public class Default extends DataExcel {
 
        RestAssured.config = RestAssuredConfig.config().sslConfig(SSLConfig.sslConfig().relaxedHTTPSValidation());
 
+        RestAssured.baseURI = baseURIFlujo;
+
 
         try {
            String jsonFile = "src/test/resources/jsons/Registrar_Error_#01_Data Invalida.json";
            String jsonContent = new String(Files.readAllBytes(Paths.get(jsonFile)));
 
-           RestAssured.baseURI = baseURI;
 
            request = given().header("Content-Type","application/json")
                    .header("Authorization",getCellValue("Hoja1",1,6)).log().all()
