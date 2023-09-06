@@ -1,4 +1,3 @@
-//1. Este error se produce por enviar creditoGrupalBean en null: linea 3
 {
   "creditoGrupalBean": null,
   "pdfManageDtoList": [

@@ -49,6 +49,7 @@ public class Default extends DataExcel {
 
     public void validarCodigo(String codigo){
        response = request.when().post(retornarValor("URL", MetodosFeature.getScenario()));
+       System.out.printf("\n");
        int responseCode = response.then().log().all().extract().statusCode();
        Assert.assertEquals(codigo,responseCode+"");
 
@@ -73,9 +74,8 @@ public class Default extends DataExcel {
 
 
            request = given().header("Content-Type","application/json")
-                   .header("Authorization",getCellValue("Hoja1",1,6)).log().all()
+                   .header("Authorization",getCellValue("Hoja1",1,6))
                    .contentType("application/json")
-                   .accept("application/json")
                    .body(jsonContent).log().all();
        }
        catch (Exception e){
